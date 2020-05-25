@@ -15,6 +15,9 @@ namespace zfy\miao\base;
  */
 abstract class BaseCall implements BaseLink
 {
+    protected $needPid   = false;//是否需要pid
+    protected $needApkey = true;//是否需要apkey
+
     use UserRuntimeExceptionTrait;
     use ParamsTrait;
 
@@ -64,6 +67,14 @@ abstract class BaseCall implements BaseLink
         $this->userApKey = $key;
     }
 
+    /**用户apkey
+     * @return string
+     */
+    public function getUserApkey()
+    {
+        return $this->userApKey;
+    }
+
 
     /**重置参数
      * @param array $data
@@ -71,11 +82,27 @@ abstract class BaseCall implements BaseLink
      */
     protected function buildParam(array $data = [])
     {
-        $data[self::USER_AP_KEY_NAME] = $this->userApKey;
+        $this->requestParam = array_merge($this->getRequestParam(), $data);
 
-        return $data;
+        /** 用户apkey */
+        $this->needApkey && !isset($this->requestParam[self::USER_AP_KEY_NAME]) && $this->requestParam[self::USER_AP_KEY_NAME] = $this->getUserApkey();
+        /** 用户pid */
+        $this->needPid && !isset($this->requestParam[self::USER_PID_KEY]) && $this->requestParam[self::USER_PID_KEY] = $this->getUserPid();
+
+        return $this->requestParam;
     }
 
+    /**用户pid
+     * @return string
+     */
+    public function getUserPid()
+    {
+        return '';
+    }
+
+    /**请求参数
+     * @return array
+     */
     public function getRequestParam()
     {
         return $this->requestParam;
@@ -92,8 +119,7 @@ abstract class BaseCall implements BaseLink
     {
         $url = $this->createUrlWithServiceName(static::SERVER_NAME, $url);
 
-        $par = empty($param) ? $this->getRequestParam() : $param;
-        $par = $this->buildParam($par);
+        $par = $this->buildParam($param);
 
         $res = http_curl($url, $method, $par);
 

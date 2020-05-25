@@ -6,7 +6,7 @@
  * Time: 16:36
  */
 
-namespace zfy\miao\goodsInterface;
+namespace zfy\miao\transLinkInterface;
 
 use zfy\miao\base\BaseCall;
 
@@ -26,6 +26,8 @@ use zfy\miao\base\BaseCall;
  */
 class HighPromotionById extends BaseCall
 {
+
+    protected $needPid = true;
 
     public function call($data = [])
     {
