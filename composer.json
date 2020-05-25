@@ -1,0 +1,30 @@
+{
+    "name": "zhongfangying/miaotickets",
+    "description": "喵有券sdk",
+    "type": "metapackage",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "fangyingzhong",
+            "email": "qfdy6688@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "zfy\\miao\\": "src/"
+        },
+        "files": [
+            "src/base/helper.php"
+        ]
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "ext-libxml": "*",
+        "ext-bcmath": "*",
+        "ext-mbstring": "*",
+        "ext-imagick": "*",
+        "ext-json": "*"
+    }
+}
