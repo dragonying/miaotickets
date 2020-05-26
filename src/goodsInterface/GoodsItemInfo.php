@@ -47,6 +47,8 @@ use zfy\miao\base\BaseCall;
 class GoodsItemInfo extends BaseCall
 {
 
+    protected $requireKey = ['itemid'];
+
     public function setItemId($id)
     {
         $this->requestParam['itemid'] = $id;
