@@ -15,6 +15,8 @@ namespace zfy\miao\base;
  */
 abstract class BaseCall implements BaseLink
 {
+    protected $requireKey = [];
+
     protected $needPid   = false;//是否需要pid
     protected $needApkey = true;//是否需要apkey
 
@@ -92,12 +94,29 @@ abstract class BaseCall implements BaseLink
         return $this->requestParam;
     }
 
+
+    /**必传参数校验
+     * @return bool
+     * @throws \zfy\miao\base\UserRuntimeException
+     */
+    protected function checkParam()
+    {
+        if (!empty($this->requireKey)){
+            $diff = array_diff($this->requireKey, array_keys($this->requestParam));
+            self::assertTrue(empty($diff), 400, '参数校验失败!!!! 缺少参数' . join(',', $diff));
+
+            return true;
+        }
+
+        return true;
+    }
+
     /**用户pid
      * @return string
      */
     public function getUserPid()
     {
-        return '';
+        return 'mm_475220038_1478550448_110210900247';
     }
 
     /**请求参数
@@ -121,9 +140,11 @@ abstract class BaseCall implements BaseLink
 
         $par = $this->buildParam($param);
 
+        $this->checkParam();
+
         $res = http_curl($url, $method, $par);
 
-        self::assertTrue(isset($res['data']), 50000, '请求错误');
+        self::assertTrue(isset($res['data']), 50000, '请求错误！！！');
         $data = $res['data'];
         try{
             $data = json_decode($data, 'true');

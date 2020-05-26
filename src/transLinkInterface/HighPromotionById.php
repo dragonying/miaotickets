@@ -27,11 +27,18 @@ use zfy\miao\base\BaseCall;
 class HighPromotionById extends BaseCall
 {
 
+    protected $requireKey = [
+        'itemid',
+        'pid',
+        'tbname'
+    ];
+
+
     protected $needPid = true;
 
     public function call($data = [])
     {
-        return $this->request(self::HIGH_PROMOTION_LINK_BY_GOODS_ID);
+        return $this->request(self::HIGH_PROMOTION_LINK_BY_GOODS_ID, $data);
     }
 
 }
