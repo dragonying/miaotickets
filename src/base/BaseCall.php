@@ -15,7 +15,7 @@ namespace zfy\miao\base;
  */
 abstract class BaseCall implements BaseLink
 {
-    protected $requireKey = [];
+    protected $requireKey = [];//必传参数
 
     protected $needPid   = false;//是否需要pid
     protected $needApkey = true;//是否需要apkey
