@@ -33,6 +33,7 @@ abstract class BaseCall implements BaseLink
     protected $responseParam = [];
 
     protected $userApKey = '1ff02c39-59fc-1385-a385-17cb6542c736';
+    protected $userPid   = 'mm_475220038_1478550448_110210900247';
 
     protected $client;
 
@@ -116,7 +117,14 @@ abstract class BaseCall implements BaseLink
      */
     public function getUserPid()
     {
-        return 'mm_475220038_1478550448_110210900247';
+        return $this->userPid;
+    }
+
+    public function setUserPid($pid)
+    {
+        $this->userPid = $pid;
+
+        return $this;
     }
 
     /**请求参数
