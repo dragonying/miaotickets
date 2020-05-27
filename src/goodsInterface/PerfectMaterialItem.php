@@ -11,7 +11,7 @@ namespace zfy\miao\goodsInterface;
 
 use zfy\miao\base\BaseCall;
 
-/**
+/**物料精选[猜你喜欢]
  * Class PerfectMaterialItem
  * @package zfy\miao\goodsInterface
  * @property String $pid 推广位ID（*必须是授权淘宝号下的推广位）
