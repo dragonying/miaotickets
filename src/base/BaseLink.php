@@ -17,6 +17,8 @@ interface BaseLink
 
     const USER_AP_KEY_NAME = 'apkey';
     const USER_PID_KEY = 'pid';
+    const USER_TB_NAME_KEY = 'tbname';
+
 
 
     const BASE_URL = 'http://api.web.21ds.cn';

@@ -17,8 +17,9 @@ abstract class BaseCall implements BaseLink
 {
     protected $requireKey = [];//必传参数
 
-    protected $needPid   = false;//是否需要pid
-    protected $needApkey = true;//是否需要apkey
+    protected $needPid    = false;//是否需要pid
+    protected $needApkey  = true;//是否需要apkey
+    protected $needTbname = false;//是否需要淘宝名称
 
     use UserRuntimeExceptionTrait;
     use ParamsTrait;
@@ -34,6 +35,7 @@ abstract class BaseCall implements BaseLink
 
     protected $userApKey = '814e2b55-30b8-fb2a-c4d7-bc7d652901f8';
     protected $userPid   = 'mm_475220038_1478550448_110210900247';
+    protected $tbname    = '钟房英624168796';
 
     protected $client;
 
@@ -92,6 +94,9 @@ abstract class BaseCall implements BaseLink
         /** 用户pid */
         $this->needPid && !isset($this->requestParam[self::USER_PID_KEY]) && $this->requestParam[self::USER_PID_KEY] = $this->getUserPid();
 
+        /** 淘宝名称tbname */
+        $this->needTbname && !isset($this->requestParam[self::USER_TB_NAME_KEY]) && $this->requestParam[self::USER_TB_NAME_KEY] = $this->getTbName();
+
         return $this->requestParam;
     }
 
@@ -126,6 +131,22 @@ abstract class BaseCall implements BaseLink
 
         return $this;
     }
+
+    /**淘宝名称
+     * @return string
+     */
+    public function getTbName()
+    {
+        return $this->tbname;
+    }
+
+    public function setTbName($name)
+    {
+        $this->tbname = $name;
+
+        return $this;
+    }
+
 
     /**请求参数
      * @return array
