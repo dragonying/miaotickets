@@ -25,6 +25,19 @@
         "ext-bcmath": "*",
         "ext-mbstring": "*",
         "ext-imagick": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "jaeger/querylist": "^4.2",
+        "jaeger/querylist-absolute-url": "*",
+        "jaeger/querylist-phantomjs": "*",
+        "jaeger/querylist-rule-baidu": "*",
+        "jaeger/querylist-curl-multi": "*",
+        "jaeger/querylist-rule-google": "*",
+        "cache/predis-adapter": "^1.0"
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
     }
 }
