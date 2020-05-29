@@ -34,12 +34,46 @@ abstract class BaseCall implements BaseLink
     protected $responseParam = [];
 
     protected $userApKey = '814e2b55-30b8-fb2a-c4d7-bc7d652901f8';
-    protected $userPid   = 'mm_475220038_1478550448_110210900247';
+    protected $userPid   = 'mm_475220038_656150051_109212850397';
     protected $tbname    = '钟房英624168796';
 
-    protected $client;
+    protected static $taoBao = null;
 
     protected $baseUrl = self::BASE_URL;
+
+
+    /**基本配置
+     * BaseCall constructor.
+     * @param array $config
+     */
+    //    public function __construct($config = [])
+    //    {
+    //
+    //        isset($config[static::USER_AP_KEY_NAME]) && $this->setUserKey($config[static::USER_AP_KEY_NAME]);
+    //        isset($config[static::USER_PID_KEY]) && $this->setUserPid($config[static::USER_PID_KEY]);
+    //        isset($config[static::USER_TB_NAME_KEY]) && $this->setTbName($config[static::USER_TB_NAME_KEY]);
+    //    }
+
+    /**基本配置
+     * @param array $config
+     * @return mixed
+     */
+    public static function getInstance($config = [])
+    {
+        if (!static::$taoBao instanceof self){
+            static::$taoBao = new static();
+
+            isset($config[static::USER_AP_KEY_NAME]) && (static::$taoBao)->setUserKey($config[static::USER_AP_KEY_NAME]);
+            isset($config[static::USER_PID_KEY]) && (static::$taoBao)->setUserPid($config[static::USER_PID_KEY]);
+            isset($config[static::USER_TB_NAME_KEY]) && (static::$taoBao)->setTbName($config[static::USER_TB_NAME_KEY]);
+
+            return static::$taoBao;
+        }
+
+        return static::$taoBao;
+
+
+    }
 
     public function setBaseUrl($url)
     {
