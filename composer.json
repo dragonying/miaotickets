@@ -13,10 +13,13 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "zfy\\miao\\": "src/"
+            "zfy\\miao\\": "src/",
+            "zfy\\miao\\api\\": "src/api/",
+            "zfy\\miao\\base\\": "src/base/"
         },
         "files": [
-            "src/base/helper.php"
+            "src/base/helper.php",
+            "init"
         ]
     },
     "require": {
