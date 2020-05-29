@@ -1,7 +1,7 @@
 {
     "name": "dragonying/miaotickets",
     "description": "喵有券sdk",
-    "type": "metapackage",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -9,8 +9,7 @@
             "email": "qfdy6688@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "zfy\\miao\\": "src/",
