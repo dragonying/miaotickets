@@ -4,7 +4,7 @@ namespace zfy\miao\api;
 
 use zfy\miao\base\BaseCall; 
 
-/**淘宝商品分类API
+/**(重构版)淘宝商品分类API
  * Class PlatformGetTbCategory
  * @url https://open.21ds.cn/index/index/openapi/id/124.shtml?ptype=1
  * @package zfy\miao\api

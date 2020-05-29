@@ -4,7 +4,7 @@ namespace zfy\miao\api;
 
 use zfy\miao\base\BaseCall; 
 
-/**全网淘客商品查询API
+/**(重构版)全网淘客商品查询API
  * Class TaokeGetTkMaterialItem
  * @url https://open.21ds.cn/index/index/openapi/id/9.shtml?ptype=1
  * @package zfy\miao\api

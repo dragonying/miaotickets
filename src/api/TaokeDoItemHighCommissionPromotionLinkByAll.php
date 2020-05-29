@@ -4,7 +4,7 @@ namespace zfy\miao\api;
 
 use zfy\miao\base\BaseCall; 
 
-/**万能高佣转链API接口
+/**(重构版)万能高佣转链API接口
  * Class TaokeDoItemHighCommissionPromotionLinkByAll
  * @url https://open.21ds.cn/index/index/openapi/id/72.shtml?ptype=1
  * @package zfy\miao\api

@@ -4,7 +4,7 @@ namespace zfy\miao\api;
 
 use zfy\miao\base\BaseCall; 
 
-/**淘抢购/聚划算/9.9元淘客商品库 API
+/**(重构版)淘抢购/聚划算/9.9元淘客商品库 API
  * Class PlatformGetItemList
  * @url https://open.21ds.cn/index/index/openapi/id/50.shtml?ptype=1
  * @package zfy\miao\api

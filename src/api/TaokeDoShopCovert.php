@@ -4,7 +4,7 @@ namespace zfy\miao\api;
 
 use zfy\miao\base\BaseCall; 
 
-/**淘宝客店铺转链API
+/**(重构版)淘宝客店铺转链API
  * Class TaokeDoShopCovert
  * @url https://open.21ds.cn/index/index/openapi/id/86.shtml?ptype=1
  * @package zfy\miao\api

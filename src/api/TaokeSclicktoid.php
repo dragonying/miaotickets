@@ -4,7 +4,7 @@ namespace zfy\miao\api;
 
 use zfy\miao\base\BaseCall; 
 
-/**sclick链接解析api
+/**(重构版)sclick链接解析api
  * Class TaokeSclicktoid
  * @url https://open.21ds.cn/index/index/openapi/id/45.shtml?ptype=1
  * @package zfy\miao\api

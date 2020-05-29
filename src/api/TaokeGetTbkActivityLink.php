@@ -4,7 +4,7 @@ namespace zfy\miao\api;
 
 use zfy\miao\base\BaseCall; 
 
-/**淘宝联盟官方活动推广API
+/**(重构版)淘宝联盟官方活动推广API
  * Class TaokeGetTbkActivityLink
  * @url https://open.21ds.cn/index/index/openapi/id/69.shtml?ptype=1
  * @package zfy\miao\api
