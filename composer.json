@@ -12,7 +12,7 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "zfy\\miao\\": "src/",
+            "zfy\\miao\\": "src/"
         },
         "files": [
             "src/base/helper.php",
