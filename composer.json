@@ -16,7 +16,7 @@
         },
         "files": [
             "src/base/helper.php",
-            "autoCreate.php"
+            "init.php"
         ]
     },
     "require": {
