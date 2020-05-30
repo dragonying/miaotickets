@@ -184,6 +184,94 @@ foreach($apiDetail as $info){
 
 initLog('请求api生成完成');
 
+
+$sqlStr = '';
+foreach($apiDetail as $val){
+    $key = $val['key'];
+
+    $tableName = join('_', array_map(function ($word){
+        if (strpos($word, '_') === false){
+            return strtolower($word);
+        }else{
+            $str = join('_', array_map(function ($v){
+                return strtolower($v);
+            }, array_filter(explode('_', $word))));
+
+            return $str;
+        }
+    }, array_filter(explode('/', $key))));
+
+    $file = __DIR__ . '/temp/' . $tableName . '.sql';
+    if (file_exists($file)){
+        //        echo $file.'已创建'.PHP_EOL;
+        continue;
+    }
+    $title = $val['title'];
+    $url = $val['url'];
+    $data = QueryList::getInstance()->get($url)->rules([
+        'param' => ['td:eq(0)', 'text'],
+        'type' => ['td:eq(1)', 'text'],
+        'desc' => ['td:eq(2)', 'text'],
+        'extend_desc' => ['td:eq(3)', 'text']
+    ])->range('.api-port-table:eq(1) .am-text-xs tr')->query()->getData(function ($item){
+        preg_match('/\b[a-zA-Z_0-9]+\b/', $item['param'], $match);
+        $item['param'] = $match[0];
+
+        if (strtolower(substr($item['param'], -2)) == 'id'){
+            $item['type'] = 'Number';
+        }else{
+            $item['type'] = 'String';
+        }
+
+        return $item;
+    })->toArray();
+
+
+    $className = join('', array_map(function ($word){
+        if (strpos($word, '_') === false){
+            return ucfirst($word);
+        }else{
+            $str = join('', array_map(function ($v){
+                return ucfirst($v);
+            }, array_filter(explode('_', $word))));
+
+            return $str;
+        }
+    }, array_filter(explode('/', $key))));
+
+    $obj = call_user_func_array(['zfy\\miao\\api\\' . $className, 'getInstance'], $config);
+    //    $dt = $obj->call();
+
+    $str = "--\n\n-- Table structure for table `$tableName`\n--\n\n";
+    $str .= "DROP TABLE IF EXISTS `$tableName`;\n";
+    $str .= "/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\n";
+    $str .= "CREATE TABLE `$tableName` (";
+    $str .= "\n";
+    $str .= "\t`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',\n\t";
+
+    if ($data[0]['param'] == 'data'){
+        unset($data[0]);
+    }
+    foreach($data as $column => $info){
+        if ($info['type'] == 'String'){
+            $str .= "`$info[param]` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '$info[desc]',";
+        }else{
+            $str .= "`$info[param]` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '$info[desc]',";
+        }
+        $str .= "\n\t";
+    }
+    $str .= "PRIMARY KEY (`id`)\n";
+    $str .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='$title';\n";
+    $str .= "/*!40101 SET character_set_client = @saved_cs_client */;\n\n";
+
+
+    file_put_contents($file, $str);
+    echo $title . '===============>' . $file . '已创建' . PHP_EOL;
+
+    $sqlStr .= $str;
+}
+file_put_contents('install.sql', $sqlStr);
+
 /**
  * 请求接口返还回参数文档
  */

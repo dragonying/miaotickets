@@ -46,13 +46,13 @@ abstract class BaseCall implements BaseLink
      * BaseCall constructor.
      * @param array $config
      */
-    //    public function __construct($config = [])
-    //    {
-    //
-    //        isset($config[static::USER_AP_KEY_NAME]) && $this->setUserKey($config[static::USER_AP_KEY_NAME]);
-    //        isset($config[static::USER_PID_KEY]) && $this->setUserPid($config[static::USER_PID_KEY]);
-    //        isset($config[static::USER_TB_NAME_KEY]) && $this->setTbName($config[static::USER_TB_NAME_KEY]);
-    //    }
+    public function __construct($config = [])
+    {
+
+        isset($config[static::USER_AP_KEY_NAME]) && $this->setUserKey($config[static::USER_AP_KEY_NAME]);
+        isset($config[static::USER_PID_KEY]) && $this->setUserPid($config[static::USER_PID_KEY]);
+        isset($config[static::USER_TB_NAME_KEY]) && $this->setTbName($config[static::USER_TB_NAME_KEY]);
+    }
 
     /**基本配置
      * @param array $config
@@ -188,6 +188,13 @@ abstract class BaseCall implements BaseLink
     public function getRequestParam()
     {
         return $this->requestParam;
+    }
+
+    /**获取必须参数
+     * @return array
+     */
+    public function getRequireKey(){
+        return $this->requireKey;
     }
 
 
