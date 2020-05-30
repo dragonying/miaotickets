@@ -250,10 +250,10 @@ foreach($apiDetail as $val){
     //    $obj = call_user_func_array(['zfy\\miao\\api\\' . $className, 'getInstance'], $config);
     //    $dt = $obj->call();
 
-    $str = "--\n\n-- Table structure for table `$tableName`\n--\n\n";
-    $str .= "DROP TABLE IF EXISTS `$tableName`;\n";
+    $str = "--\n\n-- Table structure for table `fa_$tableName`\n--\n\n";
+    $str .= "DROP TABLE IF EXISTS `fa_$tableName`;\n";
     $str .= "/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\n";
-    $str .= "CREATE TABLE `$tableName` (";
+    $str .= "CREATE TABLE `fa_$tableName` (";
     $str .= "\n";
     $str .= "\t`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',\n\t";
 
@@ -281,6 +281,138 @@ foreach($apiDetail as $val){
 
 file_put_contents('install.sql', $sqlStr);
 initLog('sql已创建');
+
+
+//物料id
+initLog('开始处理物料');
+$data = [];
+$url = 'https://tbk.bbs.taobao.com/detail.html?appId=45301&postId=8576096';
+/** 相似推荐 */
+$dt = QueryList::getInstance()->get($url)->rules([
+    'type' => ['td:eq(0)', 'text'],
+    'material_id' => ['td:eq(1)', 'text'],
+
+])->range('tbody:eq(0) tr:gt(0)')->query()->getData()->toArray();
+foreach($dt as $val){
+    $val['desc'] = '相似推荐';
+    $data[]=$val;
+}
+
+/** 猜你喜欢 */
+$dt = QueryList::getInstance()->get($url)->rules([
+    'type' => ['td:eq(0)', 'text'],
+    'material_id' => ['td:eq(1)', 'text'],
+
+])->range('tbody:eq(1) tr:gt(0)')->query()->getData()->toArray();
+foreach($dt as $val){
+    $val['desc'] = '猜你喜欢';
+    $data[]=$val;
+}
+
+/** 实时热销榜 */
+$dt = QueryList::getInstance()->get($url)->rules([
+    'type' => ['tr:eq(0)', 'html'],
+    'material_id' => ['tr:eq(1)', 'html'],
+])->range('tbody:eq(2)')->query()->getData(function ($item){
+    $type = QueryList::getInstance()->html($item['type'])->find('td')->texts()->toArray();
+    $materail_id = QueryList::getInstance()->html($item['material_id'])->find('td')->texts()->toArray();
+
+    return [
+        'type' => $type,
+        'material_id' => $materail_id
+    ];
+})->toArray();
+$dt = current($dt);
+foreach(array_combine($dt['material_id'], $dt['type']) as $key => $val){
+    $data[] = [
+        'type' => $val,
+        'material_id' => $key,
+        'desc'=>'实时热销榜'
+    ];
+}
+/** 好券直播 */
+for($i = 0; $i < 3; $i++){
+    $p = $i * 3;
+    $dt = QueryList::getInstance()->get($url)->rules([
+        'type' => ['td:eq(' . $p . ')', 'text'],
+        'material_id' => ['td:eq(' . ($p + 1) . ')', 'text'],
+    ])->range('tbody:eq(4) tr:gt(0)')->query()->getData()->toArray();
+    foreach($dt as $val){
+        $val['desc'] = '好券直播';
+        $data[] = $val;
+    }
+}
+/** 大额券 */
+for($i = 0; $i < 3; $i++){
+    $p = $i * 3;
+    $dt = QueryList::getInstance()->get($url)->rules([
+        'type' => ['td:eq(' . $p . ')', 'text'],
+        'material_id' => ['td:eq(' . ($p + 1) . ')', 'text'],
+    ])->range('tbody:eq(5) tr:gt(0)')->query()->getData()->toArray();
+    foreach($dt as $val){
+        $val['desc'] = '大额券';
+        $data[] = $val;
+    }
+}
+
+/** 高佣榜 */
+for($i = 0; $i < 3; $i++){
+    $p = $i * 3;
+    $dt = QueryList::getInstance()->get($url)->rules([
+        'type' => ['td:eq(' . $p . ')', 'text'],
+        'material_id' => ['td:eq(' . ($p + 1) . ')', 'text'],
+    ])->range('tbody:eq(6) tr:gt(0)')->query()->getData()->toArray();
+    foreach($dt as $val){
+        $val['desc'] = '高佣榜';
+        $data[] = $val;
+    }
+}
+/** 品牌券 */
+for($i = 0; $i < 3; $i++){
+    $p = $i * 3;
+    $dt = QueryList::getInstance()->get($url)->rules([
+        'type' => ['td:eq(' . $p . ')', 'text'],
+        'material_id' => ['td:eq(' . ($p + 1) . ')', 'text'],
+    ])->range('tbody:eq(7) tr:gt(0)')->query()->getData()->toArray();
+    foreach($dt as $val){
+        $val['desc'] = '品牌券';
+        $data[] = $val;
+    }
+}
+
+/** 母婴主题 */
+$dt = QueryList::getInstance()->get($url)->rules([
+    'type' => ['td:eq(0)', 'text'],
+    'material_id' => ['td:eq(1)', 'text'],
+
+])->range('tbody:eq(8) tr:gt(0)')->query()->getData()->toArray();
+foreach($dt as $val){
+    $val['desc'] = '母婴主题';
+    $data[]=$val;
+}
+
+$data[]=[
+    'type'=>'有好货',
+    'material_id'=>4092,
+    'desc'=>'有好货',
+];
+$data[]=[
+    'type'=>'潮流范',
+    'material_id'=>4093,
+    'desc'=>'潮流范',
+];
+$data[]=[
+    'type'=>'特惠',
+    'material_id'=>4094,
+    'desc'=>'特惠',
+];
+
+$data = array_filter($data,function ($v){
+    return !empty($v['type']) && !empty($v['material_id']);
+});
+
+file_put_contents('goods_material.php',"<?php \n return ".var_export($data,true).';');
+initLog('物料处理完成');
 
 /**
  * 请求接口返还回参数文档

@@ -1,12 +1,12 @@
 --
 
--- Table structure for table `platform_gettbcategory`
+-- Table structure for table `fa_platform_gettbcategory`
 --
 
-DROP TABLE IF EXISTS `platform_gettbcategory`;
+DROP TABLE IF EXISTS `fa_platform_gettbcategory`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `platform_gettbcategory` (
+CREATE TABLE `fa_platform_gettbcategory` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`parent_cid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '上级分类ID',
 	`cid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '当前分类ID',
@@ -17,13 +17,13 @@ CREATE TABLE `platform_gettbcategory` (
 
 --
 
--- Table structure for table `taoke_getiteminfo`
+-- Table structure for table `fa_taoke_getiteminfo`
 --
 
-DROP TABLE IF EXISTS `taoke_getiteminfo`;
+DROP TABLE IF EXISTS `fa_taoke_getiteminfo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_getiteminfo` (
+CREATE TABLE `fa_taoke_getiteminfo` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`cat_name` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '一级类目名称',
 	`num_iid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品id',
@@ -59,13 +59,13 @@ CREATE TABLE `taoke_getiteminfo` (
 
 --
 
--- Table structure for table `taoke_getmaterialitem`
+-- Table structure for table `fa_taoke_getmaterialitem`
 --
 
-DROP TABLE IF EXISTS `taoke_getmaterialitem`;
+DROP TABLE IF EXISTS `fa_taoke_getmaterialitem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_getmaterialitem` (
+CREATE TABLE `fa_taoke_getmaterialitem` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`coupon_amount` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '优惠券信息-优惠券面额。',
 	`small_images` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '商品信息-商品小图列表',
@@ -141,13 +141,13 @@ CREATE TABLE `taoke_getmaterialitem` (
 
 --
 
--- Table structure for table `taoke_gettkmaterialitem`
+-- Table structure for table `fa_taoke_gettkmaterialitem`
 --
 
-DROP TABLE IF EXISTS `taoke_gettkmaterialitem`;
+DROP TABLE IF EXISTS `fa_taoke_gettkmaterialitem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_gettkmaterialitem` (
+CREATE TABLE `fa_taoke_gettkmaterialitem` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`totalcount` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '搜索到符合条件的结果总数',
 	`data` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '商品列表',
@@ -187,13 +187,13 @@ CREATE TABLE `taoke_gettkmaterialitem` (
 
 --
 
--- Table structure for table `taoke_gettbkshop`
+-- Table structure for table `fa_taoke_gettbkshop`
 --
 
-DROP TABLE IF EXISTS `taoke_gettbkshop`;
+DROP TABLE IF EXISTS `fa_taoke_gettbkshop`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_gettbkshop` (
+CREATE TABLE `fa_taoke_gettbkshop` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`user_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '卖家ID',
 	`shop_title` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '店铺名称',
@@ -208,13 +208,13 @@ CREATE TABLE `taoke_gettbkshop` (
 
 --
 
--- Table structure for table `platform_getitemlist`
+-- Table structure for table `fa_platform_getitemlist`
 --
 
-DROP TABLE IF EXISTS `platform_getitemlist`;
+DROP TABLE IF EXISTS `fa_platform_getitemlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `platform_getitemlist` (
+CREATE TABLE `fa_platform_getitemlist` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`totalCount` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '总页数',
 	`data` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '原始单条请求文本',
@@ -246,13 +246,13 @@ CREATE TABLE `platform_getitemlist` (
 
 --
 
--- Table structure for table `taoke_doitemhighcommissionpromotionlink`
+-- Table structure for table `fa_taoke_doitemhighcommissionpromotionlink`
 --
 
-DROP TABLE IF EXISTS `taoke_doitemhighcommissionpromotionlink`;
+DROP TABLE IF EXISTS `fa_taoke_doitemhighcommissionpromotionlink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_doitemhighcommissionpromotionlink` (
+CREATE TABLE `fa_taoke_doitemhighcommissionpromotionlink` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`category_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品分类ID',
 	`coupon_end_time` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '优惠券有效期截止日期',
@@ -277,13 +277,13 @@ CREATE TABLE `taoke_doitemhighcommissionpromotionlink` (
 
 --
 
--- Table structure for table `taoke_doitemhighcommissionpromotionlinkbytpwd`
+-- Table structure for table `fa_taoke_doitemhighcommissionpromotionlinkbytpwd`
 --
 
-DROP TABLE IF EXISTS `taoke_doitemhighcommissionpromotionlinkbytpwd`;
+DROP TABLE IF EXISTS `fa_taoke_doitemhighcommissionpromotionlinkbytpwd`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_doitemhighcommissionpromotionlinkbytpwd` (
+CREATE TABLE `fa_taoke_doitemhighcommissionpromotionlinkbytpwd` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`short_url` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '短链接',
 	`tpwd` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '淘口令',
@@ -307,13 +307,13 @@ CREATE TABLE `taoke_doitemhighcommissionpromotionlinkbytpwd` (
 
 --
 
--- Table structure for table `taoke_sclicktoid`
+-- Table structure for table `fa_taoke_sclicktoid`
 --
 
-DROP TABLE IF EXISTS `taoke_sclicktoid`;
+DROP TABLE IF EXISTS `fa_taoke_sclicktoid`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_sclicktoid` (
+CREATE TABLE `fa_taoke_sclicktoid` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`item_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品ID',
 	`open_iid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品混淆ID',
@@ -323,13 +323,13 @@ CREATE TABLE `taoke_sclicktoid` (
 
 --
 
--- Table structure for table `taoke_doshopcovert`
+-- Table structure for table `fa_taoke_doshopcovert`
 --
 
-DROP TABLE IF EXISTS `taoke_doshopcovert`;
+DROP TABLE IF EXISTS `fa_taoke_doshopcovert`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_doshopcovert` (
+CREATE TABLE `fa_taoke_doshopcovert` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`click_url` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '生成的店铺淘客链接',
 	`user_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '生成店铺淘客链接对应的店铺ID',
@@ -339,13 +339,13 @@ CREATE TABLE `taoke_doshopcovert` (
 
 --
 
--- Table structure for table `taoke_gettbkactivitylink`
+-- Table structure for table `fa_taoke_gettbkactivitylink`
 --
 
-DROP TABLE IF EXISTS `taoke_gettbkactivitylink`;
+DROP TABLE IF EXISTS `fa_taoke_gettbkactivitylink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_gettbkactivitylink` (
+CREATE TABLE `fa_taoke_gettbkactivitylink` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`url` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '淘宝联盟官方活动推广URL',
 	`tpwd` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '淘口令',
@@ -355,13 +355,13 @@ CREATE TABLE `taoke_gettbkactivitylink` (
 
 --
 
--- Table structure for table `taoke_doitemhighcommissionpromotionlinkbyall`
+-- Table structure for table `fa_taoke_doitemhighcommissionpromotionlinkbyall`
 --
 
-DROP TABLE IF EXISTS `taoke_doitemhighcommissionpromotionlinkbyall`;
+DROP TABLE IF EXISTS `fa_taoke_doitemhighcommissionpromotionlinkbyall`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_doitemhighcommissionpromotionlinkbyall` (
+CREATE TABLE `fa_taoke_doitemhighcommissionpromotionlinkbyall` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`quanlimit` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '优惠券使用条件',
 	`youhuiquan` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '优惠券面额',
@@ -386,13 +386,13 @@ CREATE TABLE `taoke_doitemhighcommissionpromotionlinkbyall` (
 
 --
 
--- Table structure for table `taoke_gettbkactivityinfo`
+-- Table structure for table `fa_taoke_gettbkactivityinfo`
 --
 
-DROP TABLE IF EXISTS `taoke_gettbkactivityinfo`;
+DROP TABLE IF EXISTS `fa_taoke_gettbkactivityinfo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_gettbkactivityinfo` (
+CREATE TABLE `fa_taoke_gettbkactivityinfo` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`click_url` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '活动推广地址',
 	`tpwd` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '活动推广地址对应的淘口令',
@@ -403,13 +403,13 @@ CREATE TABLE `taoke_gettbkactivityinfo` (
 
 --
 
--- Table structure for table `taoke_tbkorderdetailsget`
+-- Table structure for table `fa_taoke_tbkorderdetailsget`
 --
 
-DROP TABLE IF EXISTS `taoke_tbkorderdetailsget`;
+DROP TABLE IF EXISTS `fa_taoke_tbkorderdetailsget`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_tbkorderdetailsget` (
+CREATE TABLE `fa_taoke_tbkorderdetailsget` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`list` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '订单列表',
 	`tb_paid_time` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '订单在淘宝拍下付款的时间',
@@ -472,13 +472,13 @@ CREATE TABLE `taoke_tbkorderdetailsget` (
 
 --
 
--- Table structure for table `taoke_tbkrefundorderdetailsget`
+-- Table structure for table `fa_taoke_tbkrefundorderdetailsget`
 --
 
-DROP TABLE IF EXISTS `taoke_tbkrefundorderdetailsget`;
+DROP TABLE IF EXISTS `fa_taoke_tbkrefundorderdetailsget`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_tbkrefundorderdetailsget` (
+CREATE TABLE `fa_taoke_tbkrefundorderdetailsget` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`page_no` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '页码',
 	`page_size` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '页大小',
@@ -513,13 +513,13 @@ CREATE TABLE `taoke_tbkrefundorderdetailsget` (
 
 --
 
--- Table structure for table `taoke_getpunishorderlist`
+-- Table structure for table `fa_taoke_getpunishorderlist`
 --
 
-DROP TABLE IF EXISTS `taoke_getpunishorderlist`;
+DROP TABLE IF EXISTS `fa_taoke_getpunishorderlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_getpunishorderlist` (
+CREATE TABLE `fa_taoke_getpunishorderlist` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`results` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '处罚订单列表',
 	`relation_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '渠道关系id',
@@ -537,13 +537,13 @@ CREATE TABLE `taoke_getpunishorderlist` (
 
 --
 
--- Table structure for table `taoke_tpwdtoid`
+-- Table structure for table `fa_taoke_tpwdtoid`
 --
 
-DROP TABLE IF EXISTS `taoke_tpwdtoid`;
+DROP TABLE IF EXISTS `fa_taoke_tpwdtoid`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_tpwdtoid` (
+CREATE TABLE `fa_taoke_tpwdtoid` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='(重构版)淘口令解析商品ID API';
@@ -551,13 +551,13 @@ CREATE TABLE `taoke_tpwdtoid` (
 
 --
 
--- Table structure for table `taoke_dotpwdcovert`
+-- Table structure for table `fa_taoke_dotpwdcovert`
 --
 
-DROP TABLE IF EXISTS `taoke_dotpwdcovert`;
+DROP TABLE IF EXISTS `fa_taoke_dotpwdcovert`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_dotpwdcovert` (
+CREATE TABLE `fa_taoke_dotpwdcovert` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`click_url` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '淘口令对应的商品的淘客链接',
 	`num_iid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '淘口令对应的商品的ID',
@@ -570,13 +570,13 @@ CREATE TABLE `taoke_dotpwdcovert` (
 
 --
 
--- Table structure for table `taoke_jiexitkl`
+-- Table structure for table `fa_taoke_jiexitkl`
 --
 
-DROP TABLE IF EXISTS `taoke_jiexitkl`;
+DROP TABLE IF EXISTS `fa_taoke_jiexitkl`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_jiexitkl` (
+CREATE TABLE `fa_taoke_jiexitkl` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`url` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '淘口令链接',
 	`title` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '淘口令文字',
@@ -589,13 +589,13 @@ CREATE TABLE `taoke_jiexitkl` (
 
 --
 
--- Table structure for table `taoke_createtaopwd`
+-- Table structure for table `fa_taoke_createtaopwd`
 --
 
-DROP TABLE IF EXISTS `taoke_createtaopwd`;
+DROP TABLE IF EXISTS `fa_taoke_createtaopwd`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_createtaopwd` (
+CREATE TABLE `fa_taoke_createtaopwd` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='(重构版)淘口令生成API';
@@ -603,13 +603,13 @@ CREATE TABLE `taoke_createtaopwd` (
 
 --
 
--- Table structure for table `taoke_tpwd_decrypt`
+-- Table structure for table `fa_taoke_tpwd_decrypt`
 --
 
-DROP TABLE IF EXISTS `taoke_tpwd_decrypt`;
+DROP TABLE IF EXISTS `fa_taoke_tpwd_decrypt`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_tpwd_decrypt` (
+CREATE TABLE `fa_taoke_tpwd_decrypt` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`url` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '淘口令链接',
 	`title` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '淘口令文字',
@@ -622,13 +622,13 @@ CREATE TABLE `taoke_tpwd_decrypt` (
 
 --
 
--- Table structure for table `taoke_gettbkpublisherinfo`
+-- Table structure for table `fa_taoke_gettbkpublisherinfo`
 --
 
-DROP TABLE IF EXISTS `taoke_gettbkpublisherinfo`;
+DROP TABLE IF EXISTS `fa_taoke_gettbkpublisherinfo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_gettbkpublisherinfo` (
+CREATE TABLE `fa_taoke_gettbkpublisherinfo` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`root_pid_channel_list` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '渠道专属pidList',
 	`total_count` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '总记录数',
@@ -649,13 +649,13 @@ CREATE TABLE `taoke_gettbkpublisherinfo` (
 
 --
 
--- Table structure for table `index_extapi_tbkrelationbeian`
+-- Table structure for table `fa_index_extapi_tbkrelationbeian`
 --
 
-DROP TABLE IF EXISTS `index_extapi_tbkrelationbeian`;
+DROP TABLE IF EXISTS `fa_index_extapi_tbkrelationbeian`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `index_extapi_tbkrelationbeian` (
+CREATE TABLE `fa_index_extapi_tbkrelationbeian` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`account_name` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '渠道商用户名',
 	`relation_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '渠道ID',
@@ -667,13 +667,13 @@ CREATE TABLE `index_extapi_tbkrelationbeian` (
 
 --
 
--- Table structure for table `taoke_getrelationoauthtpwd`
+-- Table structure for table `fa_taoke_getrelationoauthtpwd`
 --
 
-DROP TABLE IF EXISTS `taoke_getrelationoauthtpwd`;
+DROP TABLE IF EXISTS `fa_taoke_getrelationoauthtpwd`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_getrelationoauthtpwd` (
+CREATE TABLE `fa_taoke_getrelationoauthtpwd` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`url` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '渠道链接授权',
 	`tpwd` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '渠道链接授权生成的口令',
@@ -683,13 +683,13 @@ CREATE TABLE `taoke_getrelationoauthtpwd` (
 
 --
 
--- Table structure for table `taoke_getinvitecode`
+-- Table structure for table `fa_taoke_getinvitecode`
 --
 
-DROP TABLE IF EXISTS `taoke_getinvitecode`;
+DROP TABLE IF EXISTS `fa_taoke_getinvitecode`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_getinvitecode` (
+CREATE TABLE `fa_taoke_getinvitecode` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='(重构版)淘宝客邀请码生成API';
@@ -697,13 +697,13 @@ CREATE TABLE `taoke_getinvitecode` (
 
 --
 
--- Table structure for table `taoke_gettbkqdbeian`
+-- Table structure for table `fa_taoke_gettbkqdbeian`
 --
 
-DROP TABLE IF EXISTS `taoke_gettbkqdbeian`;
+DROP TABLE IF EXISTS `fa_taoke_gettbkqdbeian`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_gettbkqdbeian` (
+CREATE TABLE `fa_taoke_gettbkqdbeian` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`relation_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '渠道ID',
 	`account_name` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '渠道昵称',
@@ -715,13 +715,13 @@ CREATE TABLE `taoke_gettbkqdbeian` (
 
 --
 
--- Table structure for table `platform_getpaymentorderlist`
+-- Table structure for table `fa_platform_getpaymentorderlist`
 --
 
-DROP TABLE IF EXISTS `platform_getpaymentorderlist`;
+DROP TABLE IF EXISTS `fa_platform_getpaymentorderlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `platform_getpaymentorderlist` (
+CREATE TABLE `fa_platform_getpaymentorderlist` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`lists` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '订单列表',
 	`_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '代付订单号',
@@ -741,13 +741,13 @@ CREATE TABLE `platform_getpaymentorderlist` (
 
 --
 
--- Table structure for table `platform_getpaymentbalance`
+-- Table structure for table `fa_platform_getpaymentbalance`
 --
 
-DROP TABLE IF EXISTS `platform_getpaymentbalance`;
+DROP TABLE IF EXISTS `fa_platform_getpaymentbalance`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `platform_getpaymentbalance` (
+CREATE TABLE `fa_platform_getpaymentbalance` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='(重构版)支付宝打款余额查询API';
@@ -755,13 +755,13 @@ CREATE TABLE `platform_getpaymentbalance` (
 
 --
 
--- Table structure for table `op_api_v1_daifukuan_merchant`
+-- Table structure for table `fa_op_api_v1_daifukuan_merchant`
 --
 
-DROP TABLE IF EXISTS `op_api_v1_daifukuan_merchant`;
+DROP TABLE IF EXISTS `fa_op_api_v1_daifukuan_merchant`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `op_api_v1_daifukuan_merchant` (
+CREATE TABLE `fa_op_api_v1_daifukuan_merchant` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`alipay_orderid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '支付宝流水号',
 	`orderid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '开放平台订单ID',
@@ -771,13 +771,13 @@ CREATE TABLE `op_api_v1_daifukuan_merchant` (
 
 --
 
--- Table structure for table `taoke_gettbauthlist`
+-- Table structure for table `fa_taoke_gettbauthlist`
 --
 
-DROP TABLE IF EXISTS `taoke_gettbauthlist`;
+DROP TABLE IF EXISTS `fa_taoke_gettbauthlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_gettbauthlist` (
+CREATE TABLE `fa_taoke_gettbauthlist` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`tbname` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '淘宝用户名',
 	`auth_expire_time` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '授权过期时间（时间戳）',
@@ -788,13 +788,13 @@ CREATE TABLE `taoke_gettbauthlist` (
 
 --
 
--- Table structure for table `taoke_createtaoshorturl`
+-- Table structure for table `fa_taoke_createtaoshorturl`
 --
 
-DROP TABLE IF EXISTS `taoke_createtaoshorturl`;
+DROP TABLE IF EXISTS `fa_taoke_createtaoshorturl`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_createtaoshorturl` (
+CREATE TABLE `fa_taoke_createtaoshorturl` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`short_url` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '生成的短链接',
 	PRIMARY KEY (`id`)
@@ -803,13 +803,13 @@ CREATE TABLE `taoke_createtaoshorturl` (
 
 --
 
--- Table structure for table `platform_getquancontent`
+-- Table structure for table `fa_platform_getquancontent`
 --
 
-DROP TABLE IF EXISTS `platform_getquancontent`;
+DROP TABLE IF EXISTS `fa_platform_getquancontent`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `platform_getquancontent` (
+CREATE TABLE `fa_platform_getquancontent` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`username` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '小编姓名',
 	`created_time` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '发圈时间',
@@ -830,13 +830,13 @@ CREATE TABLE `platform_getquancontent` (
 
 --
 
--- Table structure for table `op_api_v1_getproxyip`
+-- Table structure for table `fa_op_api_v1_getproxyip`
 --
 
-DROP TABLE IF EXISTS `op_api_v1_getproxyip`;
+DROP TABLE IF EXISTS `fa_op_api_v1_getproxyip`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `op_api_v1_getproxyip` (
+CREATE TABLE `fa_op_api_v1_getproxyip` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`protocol` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '协议',
 	`area` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '地区',
@@ -850,13 +850,13 @@ CREATE TABLE `op_api_v1_getproxyip` (
 
 --
 
--- Table structure for table `taoke_create_taolijin`
+-- Table structure for table `fa_taoke_create_taolijin`
 --
 
-DROP TABLE IF EXISTS `taoke_create_taolijin`;
+DROP TABLE IF EXISTS `fa_taoke_create_taolijin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `taoke_create_taolijin` (
+CREATE TABLE `fa_taoke_create_taolijin` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`rights_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '淘礼金ID',
 	`send_url` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '淘礼金领取URL',
@@ -866,13 +866,13 @@ CREATE TABLE `taoke_create_taolijin` (
 
 --
 
--- Table structure for table `op_api_v1_titlefc`
+-- Table structure for table `fa_op_api_v1_titlefc`
 --
 
-DROP TABLE IF EXISTS `op_api_v1_titlefc`;
+DROP TABLE IF EXISTS `fa_op_api_v1_titlefc`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `op_api_v1_titlefc` (
+CREATE TABLE `fa_op_api_v1_titlefc` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`text` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '原始单条请求文本',
 	`items` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '词汇数组，每个元素对应结果中的一个词',
@@ -884,13 +884,13 @@ CREATE TABLE `op_api_v1_titlefc` (
 
 --
 
--- Table structure for table `api_platform_iptolocation`
+-- Table structure for table `fa_api_platform_iptolocation`
 --
 
-DROP TABLE IF EXISTS `api_platform_iptolocation`;
+DROP TABLE IF EXISTS `fa_api_platform_iptolocation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `api_platform_iptolocation` (
+CREATE TABLE `fa_api_platform_iptolocation` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`ip` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '查询的IP地址',
 	`country` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '地区',
@@ -901,13 +901,13 @@ CREATE TABLE `api_platform_iptolocation` (
 
 --
 
--- Table structure for table `op_api_v1_weixinurlcheck`
+-- Table structure for table `fa_op_api_v1_weixinurlcheck`
 --
 
-DROP TABLE IF EXISTS `op_api_v1_weixinurlcheck`;
+DROP TABLE IF EXISTS `fa_op_api_v1_weixinurlcheck`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `op_api_v1_weixinurlcheck` (
+CREATE TABLE `fa_op_api_v1_weixinurlcheck` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`code` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '200为正常域名',
 	`msg` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '检测结果',
@@ -917,13 +917,13 @@ CREATE TABLE `op_api_v1_weixinurlcheck` (
 
 --
 
--- Table structure for table `platform_expressquery`
+-- Table structure for table `fa_platform_expressquery`
 --
 
-DROP TABLE IF EXISTS `platform_expressquery`;
+DROP TABLE IF EXISTS `fa_platform_expressquery`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `platform_expressquery` (
+CREATE TABLE `fa_platform_expressquery` (
 	`id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
 	`cpCompanyInfo` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '快递信息',
 	`packageStatus` varchar(600) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '快递状态',
