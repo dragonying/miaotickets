@@ -15,7 +15,7 @@
             "zfy\\miao\\": "src/"
         },
         "files": [
-            "src/base/helper.php",
+            "src/base/helper.php"
         ]
     },
     "require": {
