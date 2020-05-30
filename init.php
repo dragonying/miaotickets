@@ -184,6 +184,9 @@ foreach($apiDetail as $info){
 
 initLog('请求api生成完成');
 
+if (!is_dir(__DIR__ . '/temp/')){
+    chmod(__DIR__ . '/temp/', 0755, true);
+}
 
 $sqlStr = '';
 foreach($apiDetail as $val){
@@ -203,7 +206,6 @@ foreach($apiDetail as $val){
 
     $file = __DIR__ . '/temp/' . $tableName . '.sql';
     if (file_exists($file)){
-        //        echo $file.'已创建'.PHP_EOL;
         continue;
     }
     $title = $val['title'];
@@ -227,6 +229,12 @@ foreach($apiDetail as $val){
     })->toArray();
 
 
+    if (empty($data)){
+        initLog($title . '文档未找到');
+        continue;
+    }
+
+
     $className = join('', array_map(function ($word){
         if (strpos($word, '_') === false){
             return ucfirst($word);
@@ -239,7 +247,7 @@ foreach($apiDetail as $val){
         }
     }, array_filter(explode('/', $key))));
 
-    $obj = call_user_func_array(['zfy\\miao\\api\\' . $className, 'getInstance'], $config);
+    //    $obj = call_user_func_array(['zfy\\miao\\api\\' . $className, 'getInstance'], $config);
     //    $dt = $obj->call();
 
     $str = "--\n\n-- Table structure for table `$tableName`\n--\n\n";
@@ -266,11 +274,13 @@ foreach($apiDetail as $val){
 
 
     file_put_contents($file, $str);
-    echo $title . '===============>' . $file . '已创建' . PHP_EOL;
+    initLog($title . '===============>' . $file . '已创建');
 
     $sqlStr .= $str;
 }
+
 file_put_contents('install.sql', $sqlStr);
+initLog('sql已创建');
 
 /**
  * 请求接口返还回参数文档
