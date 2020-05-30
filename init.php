@@ -9,13 +9,30 @@
 /**
  * 自动生成脚本
  */
-require_once __DIR__ . '/vendor/autoload.php';
+file_exists(__DIR__ . '/../../autoload.php') && require_once __DIR__ . '/../../autoload.php';
+file_exists(__DIR__ . '/vendor/autoload.php') && require_once __DIR__ . '/vendor/autoload.php';
 
 use QL\QueryList;
 
-//生成基础interface
-echo '开始生成基础interface' . PHP_EOL;
 
+$logFile = __DIR__ . '/init.log';
+
+if (file_exists($logFile)){
+    return;
+}else{
+    touch($logFile);
+}
+
+
+function initLog($str)
+{
+    global $logFile;
+    file_put_contents($logFile, date('Y-m-d H:i:s u') . ' --- ' . $str . "\n\r", FILE_APPEND);
+}
+
+
+//生成基础interface
+initLog('开始生成基础interface:BaseLink');
 
 $domain = 'http://api.web.21ds.cn';
 $apiUrl = 'https://open.21ds.cn/index/index/openapi/id/1.shtml';
@@ -92,11 +109,10 @@ if (!is_dir($dir)){
 }
 file_put_contents($fileName, $str);
 
-echo '基础interface生成完成' . PHP_EOL;
-
+initLog('基础interface:BaseLink生成完成');
 
 //生成请求api
-echo '开始生成请求api' . PHP_EOL;
+initLog('开始生成请求api');
 
 foreach($apiDetail as $info){
 
@@ -120,7 +136,6 @@ foreach($apiDetail as $info){
         }
     }, array_filter(explode('/', $info['key']))));
 
-    echo $className . PHP_EOL;
 
     $constName = join('_', array_map(function ($word){
         return strtoupper($word);
@@ -163,9 +178,10 @@ foreach($apiDetail as $info){
     $str .= '}';
 
     file_put_contents($fileName, $str);
+    initLog('接口' . $className . '生成成功');
 }
 
-echo '请求api生成完成' . PHP_EOL;
+initLog('请求api生成完成');
 
 /**
  * 请求接口返还回参数文档
