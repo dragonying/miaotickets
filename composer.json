@@ -16,7 +16,6 @@
         },
         "files": [
             "src/base/helper.php",
-            "init.php"
         ]
     },
     "require": {

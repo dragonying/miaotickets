@@ -185,7 +185,7 @@ foreach($apiDetail as $info){
 initLog('请求api生成完成');
 
 if (!is_dir(__DIR__ . '/temp/')){
-    chmod(__DIR__ . '/temp/', 0755, true);
+    mkdir(__DIR__ . '/temp/', 0755,true);
 }
 
 $sqlStr = '';
