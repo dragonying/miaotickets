@@ -23,11 +23,12 @@ if (file_exists($logFile)){
     touch($logFile);
 }
 
-
-function initLog($str)
-{
-    global $logFile;
-    file_put_contents($logFile, date('Y-m-d H:i:s u') . ' --- ' . $str . "\n\r", FILE_APPEND);
+if (!function_exists('initLog')){
+    function initLog($str)
+    {
+        $logFile = __DIR__ . '/init.log';
+        file_put_contents($logFile, date('Y-m-d H:i:s u') . ' --- ' . $str . "\n\r", FILE_APPEND);
+    }
 }
 
 
