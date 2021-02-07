@@ -7,5 +7,5 @@
  */
 
 return [
-    'ap_key'=>'',
+    'ap_key'=>'http://api.web.ecapi.cn',
 ];
