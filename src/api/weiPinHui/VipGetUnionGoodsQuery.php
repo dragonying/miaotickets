@@ -39,7 +39,8 @@ class VipGetUnionGoodsQuery extends WeiPinHuiCall
 	protected $requireKey = ['apkey', 'keyword', 'key', 'page'];
 
 	public function call($data = [])
-	{		
+	{
+	    $data['plat'] = 3;//小程序
 		return $this->request(self::VIP_GETUNIONGOODSQUERY, $data);
 	}
 }

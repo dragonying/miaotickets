@@ -28,7 +28,7 @@ class VipGetUnionGoodsList extends WeiPinHuiCall
 
 	protected $needApkey = true;
 
-	protected $requireKey = ['apkey', 'key', 'page'];
+	protected $requireKey = ['apkey', 'key', 'page','channelType'];
 
 	public function call($data = [])
 	{		

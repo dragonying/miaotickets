@@ -20,14 +20,21 @@ require_once  __DIR__.'./vendor/autoload.php';
 //$mt = new \zfy\miao\api\meiTuan\PlatformMeituanShangou();
 
 
-$pdd = new \zfy\miao\api\pingDuoDuo\PinduoduoGetThemeList();
-$res = $pdd->call([
-    'eid'=>'zfy'
-]);
-print_r($res);
+//$pdd = new \zfy\miao\api\pingDuoDuo\PinduoduoGetThemeList();
+//$res = $pdd->call([
+//    'eid'=>'zfy'
+//]);
+//print_r($res);
+//
+//$pdd = new \zfy\miao\api\pingDuoDuo\PinduoduoGetThemeGoodsList();
+//$res = $pdd->call([
+//    'theme_id'=>'7609'
+//]);
 
-$pdd = new \zfy\miao\api\pingDuoDuo\PinduoduoGetThemeGoodsList();
-$res = $pdd->call([
-    'theme_id'=>'7609'
+//唯品会
+$vip = new \zfy\miao\api\weiPinHui\VipGetUnionGoodsList();
+$res = $vip->call([
+    'page'=>1,
+    'channelType'=>0,
 ]);
 print_r($res);

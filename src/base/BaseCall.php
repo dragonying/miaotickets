@@ -169,10 +169,9 @@ abstract class BaseCall
     {
         $url = $this->createUrlWithServiceName(static::SERVER_NAME, $url);
         $par = $this->buildParam($param);
-
         $this->checkParam();
         $res = http_curl($url, $method, $par);
-
+//        print_r($res);die;
         self::assertTrue(isset($res['data']), 50000, '请求错误！！！');
         $data = $res['data'];
         try{
