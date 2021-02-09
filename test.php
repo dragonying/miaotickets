@@ -7,7 +7,7 @@
  */
 require_once  __DIR__.'./vendor/autoload.php';
 
-//$tb =  new \zfy\miao\api\taoBaoKe\TaokeGetMaterialItem();
+$tb =  new \zfy\miao\api\taoBaoKe\TaokeGetMaterialItem();
 //
 //$res = $tb->call([
 //    'materialid'=>'27548'

@@ -13,7 +13,9 @@ use zfy\miao\base\taoBaoKe\TaoBaoKeCall;
 class TaokeGetMaterialItem extends TaoBaoKeCall
 {
 
-	protected $needApkey = true;
+    protected $needApkey = true;
+    protected $needPid = true;
+    protected $needTbname = true;
 
 	protected $requireKey = ['apkey'];
 
