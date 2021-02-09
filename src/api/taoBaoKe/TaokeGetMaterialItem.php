@@ -17,7 +17,7 @@ class TaokeGetMaterialItem extends TaoBaoKeCall
     protected $needPid = true;
     protected $needTbname = true;
 
-	protected $requireKey = ['apkey'];
+	protected $requireKey = ['apkey','material_id'];
 
 	public function call($data = [])
 	{		
